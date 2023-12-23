@@ -5,7 +5,9 @@ $actions = @("print-all-accounts", "print-oldest-account", "group-by-age", "prin
 
 For ($i=0; $i -lt $users.Length; $i++) {
     For ($j=0; $j -lt $actions.Length; $j++) {
+        Write-Host "`npython script.py --login" $users[$i] "--password" $passwords[$i] $actions[$j] "`n"
         python script.py --login $users[$i] --password $passwords[$i] $actions[$j]
+        Write-Host "`npython script.py --login" $users[$i] "--password" $passwords[$i] $actions[$j] "create-database`n"
         python script.py --login $users[$i] --password $passwords[$i] $actions[$j] create-database
         }
     }
